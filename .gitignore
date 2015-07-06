@@ -1,3 +1,6 @@
 boost_1_58_0
 boost
 build
+cpp/**/*_test.cpp
+cpp/**/CMakeLists.txt
+cpp/**/README.md
