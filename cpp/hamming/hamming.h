@@ -2,25 +2,20 @@
 
 #include <string>
 
-#include <boost/range/combine.hpp>
-#include <boost/foreach.hpp>
-
 namespace hamming
 {
-    unsigned int compute(const std::string & seqA, const std::string & seqB)
+    unsigned int compute(const std::string & a, const std::string & b)
     {
-        if (seqA.size() != seqB.size()) 
+        if (a.size() != b.size()) 
         {
             throw std::domain_error("Inequal sequence lengths"); 
         }
 
         unsigned int result = 0;
 
-        // Iterate over both ranges simultaneously
-        std::string::value_type a, b;
-        BOOST_FOREACH(boost::tie(a, b), boost::combine(seqA, seqB))
+        for (size_t idx = 0; idx < a.size(); ++idx)
         {
-            if (a != b) { ++result; }
+            if (a[idx] != b[idx]) { ++result; }
         }
 
         return result;
