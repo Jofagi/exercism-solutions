@@ -4,7 +4,7 @@
 
 namespace hamming
 {
-    unsigned int compute(const std::string & a, const std::string & b)
+    inline unsigned int compute(const std::string & a, const std::string & b)
     {
         if (a.size() != b.size()) 
         {
