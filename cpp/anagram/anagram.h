@@ -8,12 +8,12 @@
 
 namespace anagram
 {
-    class matcher
+    class anagram
     {
         std::string m_sorted;
         std::string m_original;
 
-        bool is_anagram(const matcher & other) const
+        bool is_anagram(const anagram & other) const
         {
             // It's an anagram if both sequences use the same letters.
             // Be strict though: Don't count a word as its own anagram.
@@ -22,7 +22,7 @@ namespace anagram
         }
 
     public:
-        explicit matcher(const std::string & input)
+        explicit anagram(const std::string & input)
             : m_original(boost::to_lower_copy(input)) // Be case insensitive
         {
             m_sorted = m_original;
@@ -38,15 +38,10 @@ namespace anagram
 
             for (const auto & s : input)
             {
-                if (is_anagram(matcher(s))) { result.push_back(s); }
+                if (is_anagram(anagram(s))) { result.push_back(s); }
             }
 
             return result;
         }
     };
-
-    inline matcher anagram(const std::string & input)
-    {
-        return matcher(input);
-    }
 }
